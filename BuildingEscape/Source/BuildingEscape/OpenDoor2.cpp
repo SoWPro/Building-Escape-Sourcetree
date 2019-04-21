@@ -3,6 +3,7 @@
 #include "OpenDoor2.h"
 #include "Gameframework/Actor.h"
 
+
 // Sets default values for this component's properties
 UOpenDoor2::UOpenDoor2()
 {
@@ -22,6 +23,8 @@ void UOpenDoor2::BeginPlay()
 	AActor* Owner = GetOwner();
 	FRotator NewRotation = FRotator(0.0f, -90.0f, 0.0f);
 	Owner->SetActorRotation(NewRotation);
+
+
 	// ...
 	
 }
