@@ -20,13 +20,25 @@ void UOpenDoor2::BeginPlay()
 {
 	Super::BeginPlay();
 
-	AActor* Owner = GetOwner();
-	FRotator NewRotation = FRotator(0.0f, -90.0f, 0.0f);
-	Owner->SetActorRotation(NewRotation);
-
-
+	//ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
+	   
+	// Poll the Trigger volume every fram
+	// if the ActorThatOpens is in the volume
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
+	{
+		// the door opens
+		OpenDoor();
+	}
 	// ...
 	
+}
+
+void UOpenDoor2::OpenDoor()
+{
+
+	AActor* Owner = GetOwner();
+	FRotator NewRotation = FRotator(0.0f, OpenAngle, 0.0f);
+	Owner->SetActorRotation(NewRotation);
 }
 
 
